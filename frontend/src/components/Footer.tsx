@@ -15,10 +15,12 @@ import {
       linkedIn: string;
     };
   };
+
+  import logoImg from "../../public/img/logo.png"
   
   const Footer = ({ personalData }: FooterProps) => {
     return (
-      <footer className="bg-[#050505] border-t border-white/10 text-gray-300">
+      <footer className="bg-transparent border-t border-white/10 text-gray-300">
   
         <div className="max-w-7xl mx-auto px-6 py-8">
   
@@ -27,15 +29,11 @@ import {
   
             {/* Logo + name */}
             <div className="flex items-center gap-3">
-              <img
-                src="/logo.png"
+              {/* <img
+                 src={logoImg}
                 alt="logo"
-                className="w-8 h-8 object-contain"
-              />
-  
-              <span className="font-semibold text-white tracking-wide">
-                Your Name
-              </span>
+                className="w-12 h-12 object-contain"
+              /> */}
             </div>
   
             {/* Contact */}
@@ -43,22 +41,22 @@ import {
   
               <a
                 href={`mailto:${personalData.email}`}
-                className="flex items-center gap-2 hover:text-red-500 transition"
+                className="flex items-center gap-2 hover:text-teal-500 transition"
               >
-                <FaEnvelope className="text-red-500" />
+                <FaEnvelope className="text-teal-500" />
                 {personalData.email}
               </a>
   
               <a
                 href={`tel:${personalData.phone}`}
-                className="flex items-center gap-2 hover:text-red-500 transition"
+                className="flex items-center gap-2 hover:text-teal-500 transition"
               >
-                <FaPhone className="text-red-500" />
+                <FaPhone className="text-teal-500" />
                 {personalData.phone}
               </a>
   
               <div className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-red-500" />
+                <FaMapMarkerAlt className="text-teal-500" />
                 {personalData.location}
               </div>
   
@@ -71,7 +69,7 @@ import {
                 href={personalData.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500 hover:text-red-500 transition"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500 hover:text-teal-500 transition"
               >
                 <FaGithub size={16} />
               </a>
@@ -80,7 +78,7 @@ import {
                 href={personalData.linkedIn}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500 hover:text-red-500 transition"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500 hover:text-teal-500 transition"
               >
                 <FaLinkedin size={16} />
               </a>
@@ -98,7 +96,7 @@ import {
   
             <p className="flex items-center gap-1">
               Built with React + Tailwind 
-              <span className="text-red-500 animate-pulse">❤</span>
+              <span className="text-teal-500 animate-pulse">❤</span>
             </p>
   
           </div>

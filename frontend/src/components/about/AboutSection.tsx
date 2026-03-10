@@ -124,7 +124,7 @@ function AboutSection({ personalData }: AboutProps) {
               perspective={1500}
               glareEnable
               glareMaxOpacity={0.2}
-              glareColor="#ef4444"
+              glareColor="#14b8a6"
               scale={1.05}
               className="about-image-card"
             >

@@ -23,10 +23,13 @@ export default function SectionReveal({
   className = "",
 }: SectionRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    const bg = bgRef.current;
+
+    if (!el || !bg) return;
 
     let x = 0;
     let y = 0;
@@ -46,13 +49,17 @@ export default function SectionReveal({
         break;
     }
 
-    const animation = gsap.fromTo(
-      el,
-      {
-        opacity: 0,
-        x,
-        y,
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
+    });
+
+    tl.fromTo(
+      el,
+      { opacity: 0, x, y },
       {
         opacity: 1,
         x: 0,
@@ -60,19 +67,37 @@ export default function SectionReveal({
         duration,
         delay,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
       }
     );
 
+    // background fade
+    tl.fromTo(
+      bg,
+      { opacity: 0 },
+      {
+        opacity: 0.25,
+        duration: 1.2,
+        ease: "power2.out",
+      },
+      0
+    );
+
     return () => {
-      animation.scrollTrigger?.kill();
-      animation.kill();
+      tl.scrollTrigger?.kill();
+      tl.kill();
     };
   }, [direction, delay, duration]);
 
-  return <div ref={ref} className={className}>{children}</div>;
+  return (
+    <div ref={ref} className={`relative ${className}`}>
+      {/* gradient overlay */}
+      <div
+        ref={bgRef}
+        className="pointer-events-none absolute inset-0 -z-10 
+        bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.4),transparent_70%)]"
+      />
+
+      {children}
+    </div>
+  );
 }

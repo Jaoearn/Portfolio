@@ -56,6 +56,17 @@ export default function DashboardPage() {
         "Improved UI performance and accessibility",
       ],
     },
+    {
+      id: 3,
+      title: "Frontend Developer",
+      company: "Tech Startup",
+      duration: "2020 - 2022",
+      details: [
+        "Built responsive UI with React and Tailwind",
+        "Integrated REST APIs",
+        "Improved UI performance and accessibility",
+      ],
+    },
   ];
 
   const footerData = {
@@ -112,6 +123,7 @@ export default function DashboardPage() {
   return (
     <>
       <main className="bg-black min-h-screen text-white">
+        
         <Navbar />
 
         <SectionReveal>

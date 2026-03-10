@@ -75,7 +75,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         }}
       />
 
-      <div className="relative flex flex-col h-full justify-between border border-white/10 bg-[#050505]/20 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-teal-600/50 hover:shadow-teal-600/10">
+      <div className="relative flex flex-col h-full justify-between border border-white/10 bg-gradient-to-br from-black via-teal-950/60 to-black backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-teal-600/50 hover:shadow-teal-600/10">
 
         {/* media */}
         <div className="flex-1">
@@ -101,13 +101,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             ) : (
-              <div className="w-full h-full bg-slate-900 flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-slate-950 via-teal-950/70 to-black flex items-center justify-center">
                 <span className="text-slate-600">{project.name}</span>
               </div>
             )}
 
             {/* overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-teal-900/70 to-transparent opacity-80" />
 
             {isNewProject(project.date) && (
               <div className="absolute top-4 right-4 bg-gradient-to-r from-teal-600 to-teal-900 text-white px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg animate-pulse z-10 border border-white/10">
