@@ -48,7 +48,7 @@ const projectsData: Project[] = [
   }
 ];
 
-const FeatutealProjects = () => {
+const FeaturedProjects = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start"
   });
@@ -99,4 +99,4 @@ const FeatutealProjects = () => {
   );
 };
 
-export default FeatutealProjects;
+export default FeaturedProjects;

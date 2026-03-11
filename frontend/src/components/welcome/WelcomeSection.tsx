@@ -255,7 +255,7 @@ const WelcomeSection = ({ personalData }: Props) => {
                     <p className="ml-4">
                       <span className="text-slate-200">skills:</span> [
                       <span className="text-teal-300">
-                        'React', 'C#', 'GSAP', 'AI'
+                        'C#', '.Net' , 'React','TypeScript' , 'AI'
                       </span>
                       ],
                     </p>

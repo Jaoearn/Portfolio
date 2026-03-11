@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { ChevronUp, Code, ExternalLink, Globe, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 type Project = {
   id: string;
@@ -123,8 +124,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           {/* header */}
           <div className="p-6 pb-2">
 
-            <a
-              href={`/projects/${project.id}`}
+            <Link
+              to={`/projects/${project.id}`}
               className="group/title inline-block"
             >
               <h3 className="text-2xl font-bold text-white group-hover/title:text-teal-500 transition-colors flex items-center gap-2 tracking-tight">
@@ -132,7 +133,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
                 <ExternalLink className="w-4 h-4 opacity-0 -translate-y-1 translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-y-0 group-hover/title:translate-x-0 transition-all text-teal-500" />
               </h3>
-            </a>
+            </Link>
 
           </div>
 

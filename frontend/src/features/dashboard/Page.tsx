@@ -26,10 +26,8 @@ export default function DashboardPage() {
     name: "Sutheera Preenan",
     profile: "/images/profile.jpg",
     description: `
-    I am a passionate Full Stack Developer specializing in
-    React, TypeScript, and .NET. I enjoy designing scalable
-    systems, building modern UI, and crafting high-performance
-    web applications.
+    I'm a Full-Stack Developer specializing in C# , .NET , React and TypeScript. I'm passionate about building scalable web applications, crafting modern user interfaces, and developing efficient backend and frontend systems.
+    I focus on writing clean, maintainable code and delivering high-performance digital solutions.
     `,
   };
 
@@ -73,8 +71,8 @@ export default function DashboardPage() {
     email: "jaoearn.sp@email.com",
     phone: "0903996712",
     location: "Bangkok, Thailand",
-    github: "https://github.com/yourname",
-    linkedIn: "https://linkedin.com/in/yourname"
+    github: "https://github.com/Jaoearn",
+    linkedIn: "https://linkedin.com/in/sutheera-preenan-06bb0126a"
   };
 
   const projectsData: Project[] = [
