@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import ProjectCard from "../../components/projects/ProjectCard";
 import type { Project } from "../../components/projects/ProjectsSection";
+import { ArrowLeft } from "lucide-react";
 
 const projectsData: Project[] = [
   {
@@ -55,6 +57,15 @@ const Page = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-900/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-8 py-24 flex flex-col items-center gap-16 relative z-10">
+        {/* Back Button */}
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-white hover:text-teal-500 transition-colors mb-8 group font-medium self-start"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Dashboard</span>
+        </Link>
+
         {/* Header */}
         <div className="max-w-3xl text-center flex flex-col gap-6">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter">

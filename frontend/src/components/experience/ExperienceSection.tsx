@@ -1,19 +1,29 @@
-import { Calendar, Building2, ChevronRight, SquareUserRound } from "lucide-react";
+import {
+  Calendar,
+  Building2,
+  ChevronRight,
+  SquareUserRound,
+} from "lucide-react";
 import SectionReveal from "../SectionReveal";
+
+type ExperienceDetail = {
+  details: string;
+  subDetails?: string[];
+};
 
 type ExperienceType = {
   id: number;
   title: string;
   company: string;
   duration: string;
-  details?: string[];
+  detail?: ExperienceDetail[];
 };
 
 type Props = {
-  experiences: ExperienceType[];
+  experiencesData: ExperienceType[];
 };
 
-function ExperienceSection({ experiences }: Props) {
+function ExperienceSection({ experiencesData }: Props) {
   return (
     <div
       id="experience"
@@ -21,7 +31,7 @@ function ExperienceSection({ experiences }: Props) {
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="flex justify-center mb-20 lg:mb-32">
+      <div className="flex justify-center mb-10 lg:mb-20">
         <div className="flex items-center">
           <span className="w-24 h-[2px] bg-gradient-to-r from-transparent to-teal-600"></span>
 
@@ -37,7 +47,7 @@ function ExperienceSection({ experiences }: Props) {
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-teal-600 via-teal-950 to-transparent opacity-30" />
 
         <div className="flex flex-col gap-16 lg:gap-24">
-          {experiences.map((exp, index) => (
+          {experiencesData.map((exp, index) => (
             <div key={exp.id} className="relative">
               <SectionReveal direction={index % 2 === 0 ? "right" : "left"}>
                 <div
@@ -51,9 +61,7 @@ function ExperienceSection({ experiences }: Props) {
 
                   <div
                     className={`w-full md:w-1/2 flex ${
-                      index % 2 === 0
-                        ? "md:justify-end"
-                        : "md:justify-start"
+                      index % 2 === 0 ? "md:justify-end" : "md:justify-start"
                     }`}
                   >
                     <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-full flex items-center gap-2 text-slate-400 text-sm">
@@ -76,14 +84,31 @@ function ExperienceSection({ experiences }: Props) {
                           </div>
                         </div>
 
-                        <div className="space-y-3">
-                          {exp.details?.map((detail, idx) => (
-                            <div key={idx} className="flex gap-3 items-start">
-                              <ChevronRight className="w-4 h-4 text-teal-600 mt-1 shrink-0" />
+                        <div className="space-y-4">
+                          {exp.detail?.map((detail, idx) => (
+                            <div key={idx} className="space-y-2">
+                              <div className="flex gap-3 items-start">
+                                <ChevronRight className="w-4 h-4 text-teal-600 mt-1 shrink-0" />
+                                <p className="text-slate-400 text-sm lg:text-base">
+                                  {detail.details}
+                                </p>
+                              </div>
 
-                              <p className="text-slate-400 text-sm lg:text-base">
-                                {detail}
-                              </p>
+                              {(detail.subDetails ?? []).length > 0 && (
+                                <div className="ml-7 space-y-1">
+                                  {detail.subDetails?.map((sub, i) => (
+                                    <div
+                                      key={i}
+                                      className="flex gap-2 items-start"
+                                    >
+                                      <ChevronRight className="w-3 h-3 text-teal-500 mt-1 shrink-0" />
+                                      <p className="text-slate-500 text-sm">
+                                        {sub}
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>

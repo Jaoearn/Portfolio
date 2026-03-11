@@ -2,21 +2,6 @@ import { getSkillIcon, getSkillColor } from "../../utils/skill-icons";
 import Marquee from "react-fast-marquee";
 import SectionReveal from "../SectionReveal";
 
-const skillsData = [
-    "React",
-    "TypeScript",
-    "Next.js",
-    "Node.js",
-    "Tailwind",
-    "GSAP",
-    "MongoDB",
-    "PostgreSQL",
-    "Docker",
-    "Git",
-    "Vite",
-    "tealux"
-];
-
 type SkillItemProps = {
   skill: string;
 };
@@ -28,7 +13,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
   return (
     <div className="mx-4 my-4 group">
       <div className="relative px-8 py-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:border-teal-500/30 hover:bg-white/[0.05] flex items-center gap-4 shadow-xl">
-        
+
         <div
           className="text-3xl transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_var(--icon-color)]"
           style={{ "--icon-color": color } as React.CSSProperties}
@@ -55,7 +40,12 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
   );
 };
 
-const SkillsSection: React.FC = () => {
+type SkillsSectionProps = {
+  skillsData: string[];
+};
+
+const SkillsSection: React.FC<SkillsSectionProps> = ({ skillsData }) => {
+
   const firstHalf = skillsData.slice(0, Math.ceil(skillsData.length / 2));
   const secondHalf = skillsData.slice(Math.ceil(skillsData.length / 2));
 

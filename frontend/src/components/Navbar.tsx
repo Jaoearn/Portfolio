@@ -65,9 +65,9 @@ const Navbar = () => {
           className="text-lg md:text-xl font-black tracking-tight text-white hover:scale-105 transition-transform"
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
-            Dev
+            Sutheera
           </span>
-          Portfolio
+          <span className="ml-1">Preenan</span>
         </a>
 
         {/* Desktop Menu */}

@@ -7,7 +7,7 @@ import {
   } from "react-icons/fa";
   
   type FooterProps = {
-    personalData: {
+    footerData: {
       email: string;
       phone: string;
       location: string;
@@ -18,7 +18,7 @@ import {
 
   import logoImg from "../../public/img/logo.png"
   
-  const Footer = ({ personalData }: FooterProps) => {
+  const Footer = ({ footerData }: FooterProps) => {
     return (
       <footer className="bg-transparent border-t border-white/10 text-gray-300">
   
@@ -40,24 +40,24 @@ import {
             <div className="flex flex-wrap items-center gap-6 text-sm">
   
               <a
-                href={`mailto:${personalData.email}`}
+                href={`mailto:${footerData.email}`}
                 className="flex items-center gap-2 hover:text-teal-500 transition"
               >
                 <FaEnvelope className="text-teal-500" />
-                {personalData.email}
+                {footerData.email}
               </a>
   
               <a
-                href={`tel:${personalData.phone}`}
+                href={`tel:${footerData.phone}`}
                 className="flex items-center gap-2 hover:text-teal-500 transition"
               >
                 <FaPhone className="text-teal-500" />
-                {personalData.phone}
+                {footerData.phone}
               </a>
   
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="text-teal-500" />
-                {personalData.location}
+                {footerData.location}
               </div>
   
             </div>
@@ -66,7 +66,7 @@ import {
             <div className="flex items-center gap-3">
   
               <a
-                href={personalData.github}
+                href={footerData.github}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500 hover:text-teal-500 transition"
@@ -75,7 +75,7 @@ import {
               </a>
   
               <a
-                href={personalData.linkedIn}
+                href={footerData.linkedIn}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500 hover:text-teal-500 transition"

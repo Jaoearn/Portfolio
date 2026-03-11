@@ -3,120 +3,17 @@ import Navbar from "../../components/Navbar";
 import SectionReveal from "../../components/SectionReveal";
 import AboutSection from "../../components/about/AboutSection";
 import ExperienceSection from "../../components/experience/ExperienceSection";
-import ProjectsSection, { type Project } from "../../components/projects/ProjectsSection";
+import ProjectsSection from "../../components/projects/ProjectsSection";
 import SkillsSection from "../../components/skills/SkillsSection";
 import WelcomeSection from "../../components/welcome/WelcomeSection";
+import { welcomeData } from "../../utils/data/welcome-data";
+import { aboutData } from "../../utils/data/about-data";
+import { experienceData } from "../../utils/data/experience-data";
+import { projectsData } from "../../utils/data/projects-data";
+import { footerData } from "../../utils/data/footer-data";
+import { skillsData } from "../../utils/data/skills-data";
 
 export default function DashboardPage() {
-  const welcomeData = {
-    name: "Sutheera Preenan",
-    designation: "Fullstack Developer",
-    designationAlternateWords: [
-      "Full-Stack Developer",
-      "React & TypeScript Developer",
-      "C# .NET Developer",
-      "Backend Engineer"
-    ],
-    github: "https://github.com/Jaoearn",
-    linkedIn: "https://linkedin.com/in/sutheera-preenan-06bb0126a",
-    resume: "/resume.pdf"
-  };
-
-  const aboutData = {
-    name: "Sutheera Preenan",
-    profile: "/images/profile.jpg",
-    description: `
-    I'm a Full-Stack Developer specializing in C# , .NET , React and TypeScript. I'm passionate about building scalable web applications, crafting modern user interfaces, and developing efficient backend and frontend systems.
-    I focus on writing clean, maintainable code and delivering high-performance digital solutions.
-    `,
-  };
-
-  const experienceData = [
-    {
-      id: 1,
-      title: "Full Stack Developer",
-      company: "SCG",
-      duration: "2022 - Present",
-      details: [
-        "Developed vendor evaluation system using React + .NET",
-        "Built API services and optimized SQL queries",
-        "Implemented dynamic questionnaire evaluation system",
-      ],
-    },
-    {
-      id: 2,
-      title: "Frontend Developer",
-      company: "Tech Startup",
-      duration: "2020 - 2022",
-      details: [
-        "Built responsive UI with React and Tailwind",
-        "Integrated REST APIs",
-        "Improved UI performance and accessibility",
-      ],
-    },
-    {
-      id: 3,
-      title: "Frontend Developer",
-      company: "Tech Startup",
-      duration: "2020 - 2022",
-      details: [
-        "Built responsive UI with React and Tailwind",
-        "Integrated REST APIs",
-        "Improved UI performance and accessibility",
-      ],
-    },
-  ];
-
-  const footerData = {
-    email: "jaoearn.sp@email.com",
-    phone: "0903996712",
-    location: "Bangkok, Thailand",
-    github: "https://github.com/Jaoearn",
-    linkedIn: "https://linkedin.com/in/sutheera-preenan-06bb0126a"
-  };
-
-  const projectsData: Project[] = [
-    {
-      id: "portfolio",
-      name: "Developer Portfolio",
-      description: "Modern portfolio built with React, TypeScript and Tailwind",
-      images: ["/projects/portfolio.jpg"],
-      tools: ["React", "TypeScript", "Tailwind", "GSAP"],
-      demo: "https://your-demo.com",
-      code: "https://github.com/your-repo",
-      date: "2026-02-01"
-    },
-    {
-      id: "task-manager",
-      name: "Task Manager App",
-      description: "Fullstack task management system with authentication",
-      images: ["/projects/task.jpg"],
-      tools: ["React", "Node.js", "MongoDB", "Express"],
-      demo: "https://task-demo.com",
-      code: "https://github.com/your-repo",
-      date: "2025-12-10"
-    },
-    {
-      id: "ecommerce",
-      name: "E-Commerce Platform",
-      description: "Shopping platform with payment integration",
-      images: ["/projects/ecommerce.jpg"],
-      tools: ["React", "tealux", "Stripe", "Node.js"],
-      demo: "https://shop-demo.com",
-      code: "https://github.com/your-repo",
-      date: "2025-11-20"
-    },
-    {
-      id: "dashboard",
-      name: "Admin Dashboard",
-      description: "Analytics dashboard with charts and realtime data",
-      images: ["/projects/dashboard.jpg"],
-      tools: ["React", "TypeScript", "ChartJS", "Firebase"],
-      demo: "https://dashboard-demo.com",
-      code: "https://github.com/your-repo",
-      date: "2025-10-05"
-    }
-  ];
 
   return (
     <>
@@ -125,26 +22,26 @@ export default function DashboardPage() {
         <Navbar />
 
         <SectionReveal>
-          <WelcomeSection personalData={welcomeData} />
+          <WelcomeSection welcomeData={welcomeData} />
         </SectionReveal>
 
         <SectionReveal>
-          <AboutSection personalData={aboutData} />
+          <AboutSection aboutData={aboutData} />
         </SectionReveal>
 
         <SectionReveal>
-          <ExperienceSection experiences={experienceData} />
+          <ExperienceSection experiencesData={experienceData} />
         </SectionReveal>
 
         <SectionReveal>
-          <SkillsSection />
+          <SkillsSection skillsData={skillsData}/>
         </SectionReveal>
 
         <SectionReveal>
           <ProjectsSection projectsData={projectsData}/>
         </SectionReveal>
 
-        <Footer personalData={footerData} />
+        <Footer footerData={footerData} />
       </main>
     </>
   );

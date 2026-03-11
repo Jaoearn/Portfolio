@@ -7,7 +7,7 @@ import { RiContactsFill } from "react-icons/ri";
 import Tilt from "react-parallax-tilt";
 import { MdDownload } from "react-icons/md";
 
-type PersonalData = {
+type WelcomeData = {
   name: string;
   designation: string;
   designationAlternateWords: string[];
@@ -17,10 +17,10 @@ type PersonalData = {
 };
 
 type Props = {
-  personalData: PersonalData;
+  welcomeData: WelcomeData;
 };
 
-const WelcomeSection = ({ personalData }: Props) => {
+const WelcomeSection = ({ welcomeData }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const designationRef = useRef<HTMLSpanElement>(null);
   const codeCardRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ const WelcomeSection = ({ personalData }: Props) => {
     () => {
       gsap.registerPlugin(SplitText);
 
-      const titles = personalData.designationAlternateWords;
+      const titles = welcomeData.designationAlternateWords;
       let index = 0;
 
       const introTl = gsap.timeline();
@@ -38,25 +38,25 @@ const WelcomeSection = ({ personalData }: Props) => {
         .fromTo(
           ".hero-tag",
           { opacity: 0, x: -20 },
-          { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }
+          { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" },
         )
         .fromTo(
           ".hero-heading",
           { opacity: 0, scale: 0.95 },
           { opacity: 1, scale: 1, duration: 1, ease: "power4.out" },
-          "-=0.5"
+          "-=0.5",
         )
         .fromTo(
           ".hero-cta",
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: "power2.out" },
-          "-=0.6"
+          "-=0.6",
         )
         .fromTo(
           codeCardRef.current,
           { opacity: 0, x: 50 },
           { opacity: 1, x: 0, duration: 1.2, ease: "power4.out" },
-          "-=1"
+          "-=1",
         );
 
       const runDesignationAnimation = () => {
@@ -67,7 +67,7 @@ const WelcomeSection = ({ personalData }: Props) => {
           onComplete: () => {
             index = (index + 1) % titles.length;
             runDesignationAnimation();
-          }
+          },
         });
 
         el.textContent = titles[index];
@@ -80,7 +80,7 @@ const WelcomeSection = ({ personalData }: Props) => {
           rotateX: -90,
           stagger: 0.04,
           duration: 0.6,
-          ease: "back.out(1.7)"
+          ease: "back.out(1.7)",
         }).to(split.chars, {
           opacity: 0,
           y: -10,
@@ -89,7 +89,7 @@ const WelcomeSection = ({ personalData }: Props) => {
           duration: 0.5,
           ease: "back.in(1.7)",
           delay: 2,
-          onComplete: () => split.revert()
+          onComplete: () => split.revert(),
         });
       };
 
@@ -101,10 +101,10 @@ const WelcomeSection = ({ personalData }: Props) => {
         repeat: -1,
         yoyo: true,
         stagger: 0.2,
-        ease: "sine.inOut"
+        ease: "sine.inOut",
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -117,37 +117,28 @@ const WelcomeSection = ({ personalData }: Props) => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-900/10 blur-[150px] rounded-full animate-pulse delay-700" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center px-4 md:px-8 relative z-10 w-full max-w-7xl mx-auto">
-        
         {/* LEFT */}
         <div className="order-2 lg:order-1 flex flex-col items-start gap-8">
-
           <div className="flex flex-col gap-4">
             <span className="hero-tag px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-bold tracking-[0.3em] w-fit">
-              Welcome TO My Portfolio
+              Welcome To My Portfolio
             </span>
 
             <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1]">
-              Crafting{" "}
+              Hi , I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-800">
-                Digital
+                {welcomeData.name}
               </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-800 to-teal-950">
-                Masterpieces
-              </span>
             </h1>
 
             <p className="hero-heading text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed font-medium">
-              I'm{" "}
-              <span className="text-white font-bold">
-                {personalData.name}
-              </span>
-              , a professional
+              I'm a professional
               <span
                 ref={designationRef}
                 className="text-teal-500 ml-2 font-bold inline-block min-w-[200px]"
               >
-                {personalData.designation}
+                {welcomeData.designation}
               </span>
               <br />
               dedicated to building high-performance web applications.
@@ -156,10 +147,9 @@ const WelcomeSection = ({ personalData }: Props) => {
 
           {/* SOCIAL */}
           <div className="flex flex-col gap-6">
-
             <div className="flex items-center gap-4">
               <a
-                href={personalData.github}
+                href={welcomeData.github}
                 target="_blank"
                 className="social-icon p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:text-teal-500 hover:border-teal-500/50 transition-all duration-300 shadow-xl"
               >
@@ -167,7 +157,7 @@ const WelcomeSection = ({ personalData }: Props) => {
               </a>
 
               <a
-                href={personalData.linkedIn}
+                href={welcomeData.linkedIn}
                 target="_blank"
                 className="social-icon p-3 rounded-xl bg-white/5 border border-white/10 text-white hover:text-teal-500 hover:border-teal-500/50 transition-all duration-300 shadow-xl"
               >
@@ -177,26 +167,16 @@ const WelcomeSection = ({ personalData }: Props) => {
 
             {/* BUTTON */}
             <div className="hero-cta flex flex-wrap gap-4">
-
               <a
-                href="#contact"
+                href={welcomeData.resume}
+                target="_blank"
                 className="group relative px-8 py-4 rounded-2xl bg-gradient-to-r from-teal-600 to-teal-900 text-white font-bold uppercase tracking-wider overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(239,68,68,0.3)]"
               >
                 <span className="relative flex items-center gap-2">
-                  Let's Collaborate
-                  <RiContactsFill />
+                  Get Resume
+                  <MdDownload className="group-hover:translate-y-1 transition-transform" />
                 </span>
               </a>
-
-              <a
-                href={personalData.resume}
-                target="_blank"
-                className="group px-8 py-4 rounded-2xl border border-white/10 bg-white/5 text-white font-bold uppercase tracking-wider transition-all hover:bg-white/10 hover:border-teal-500/50 flex items-center gap-2"
-              >
-                Get Resume
-                <MdDownload className="group-hover:translate-y-1 transition-transform" />
-              </a>
-
             </div>
           </div>
         </div>
@@ -247,7 +227,10 @@ const WelcomeSection = ({ personalData }: Props) => {
                     <span className="text-slate-600 italic">03</span>
                     <p className="ml-4">
                       <span className="text-slate-200">focus:</span>{" "}
-                      <span className="text-teal-300">'Fullstack Developer'</span>,
+                      <span className="text-teal-300">
+                        'Fullstack Developer'
+                      </span>
+                      ,
                     </p>
                   </div>
                   <div className="flex gap-4">
@@ -255,7 +238,7 @@ const WelcomeSection = ({ personalData }: Props) => {
                     <p className="ml-4">
                       <span className="text-slate-200">skills:</span> [
                       <span className="text-teal-300">
-                        'C#', '.Net' , 'React','TypeScript' , 'AI'
+                        'C#', '.Net' , 'React','TypeScript'
                       </span>
                       ],
                     </p>
@@ -271,7 +254,9 @@ const WelcomeSection = ({ personalData }: Props) => {
                     <span className="text-slate-600 italic">06</span>
                     <p className="ml-4">
                       <span className="text-slate-200">motto:</span>{" "}
-                      <span className="text-teal-400">"Build with Purpose"</span>
+                      <span className="text-teal-400">
+                        "Build with Purpose"
+                      </span>
                     </p>
                   </div>
                   <div className="flex gap-4">

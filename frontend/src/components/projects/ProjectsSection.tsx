@@ -47,27 +47,6 @@ const ProjectsSection = ({ projectsData }: Props) => {
 
         <div className="flex flex-col items-center gap-12 lg:gap-20">
 
-          {/* heading */}
-          <div className="text-center">
-
-            <p className="text-teal-500 text-sm font-bold uppercase tracking-[0.4em] mb-4">
-              Portfolio
-            </p>
-
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tighter">
-              Featuteal{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-800">
-                Creations
-              </span>
-            </h2>
-
-            <p className="mt-6 max-w-2xl text-slate-400 text-lg leading-relaxed font-medium mx-auto">
-              A selection of high-impact digital solutions, built with focus on
-              scalability, performance, and exceptional user experience.
-            </p>
-
-          </div>
-
           {/* projects grid */}
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
 

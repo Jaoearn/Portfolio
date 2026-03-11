@@ -4,19 +4,19 @@ import {
     SiJavascript,
     SiTypescript,
     SiReact,
-    SiNextdotjs,
-    SiTailwindcss,
-    SiNodedotjs,
-    SiMongodb,
-    SiMysql,
-    SiFirebase,
-    SiGit,
-    SiFigma,
-    SiBootstrap,
-    SiMui,
-    SiCanva,
     SiFreelancer,
+    SiDotnet,
+    SiGsap,
+    SiDocker,
+    SiPostman,
+    SiFigma,
+    SiV0
   } from "react-icons/si";
+
+  import { PiFileCSharpBold } from "react-icons/pi";
+  import { RiTailwindCssLine } from "react-icons/ri";
+  import { FaGitAlt, FaGithub, FaNode } from "react-icons/fa";
+  import { DiMsqlServer, DiVisualstudio } from "react-icons/di";
   
   import type { IconType } from "react-icons";
   
@@ -30,42 +30,38 @@ import {
         return SiCss;
       case "javascript":
         return SiJavascript;
-      case "js":
-        return SiJavascript;
       case "typescript":
         return SiTypescript;
       case "ts":
         return SiTypescript;
       case "react":
         return SiReact;
-      case "next js":
-      case "nextjs":
-      case "next.js":
-        return SiNextdotjs;
+      case "node":
+        return FaNode;
       case "tailwind":
-      case "tailwindcss":
-        return SiTailwindcss;
-      case "node js":
-      case "nodejs":
-      case "node.js":
-        return SiNodedotjs;
-      case "mongodb":
-        return SiMongodb;
-      case "mysql":
-        return SiMysql;
-      case "firebase":
-        return SiFirebase;
+        return RiTailwindCssLine;
+      case "c#":
+        return PiFileCSharpBold;
+      case ".net":
+        return SiDotnet;
+      case "gsap":
+        return SiGsap;
+      case "sqlserver":
+        return DiMsqlServer;
+      case "docker":
+        return SiDocker;
       case "git":
-        return SiGit;
+        return FaGitAlt;
+      case "github":
+        return FaGithub;
+      case "postman":
+        return SiPostman;
+      case "visual":
+        return DiVisualstudio;
       case "figma":
         return SiFigma;
-      case "bootstrap":
-        return SiBootstrap;
-      case "materialui":
-      case "mui":
-        return SiMui;
-      case "canva":
-        return SiCanva;
+      case "v0":
+        return SiV0;
       default:
         return SiFreelancer;
     }
@@ -74,40 +70,8 @@ import {
   export const getSkillColor = (skill: string): string => {
     const skillLower = skill.toLowerCase();
     switch (skillLower) {
-      case "html":
+      case "":
         return "#14b8a6 ";  // teal-500
-      case "css":
-        return "#14b8a6 ";
-      case "javascript":
-        return "#14b8a6 ";
-      case "typescript":
-        return "#14b8a6 ";
-      case "react":
-        return "#14b8a6 ";
-      case "next js":
-      case "nextjs":
-      case "next.js":
-        return "#ffffff";
-      case "tailwind":
-        return "#14b8a6";
-      case "node js":
-      case "nodejs":
-        return "#14b8a6 ";
-      case "mongodb":
-        return "#14b8a6";
-      case "mysql":
-        return "#14b8a6";
-      case "firebase":
-        return "#14b8a6 ";
-      case "git":
-        return "#14b8a6 ";
-      case "figma":
-        return "#14b8a6 ";
-      case "bootstrap":
-        return "#14b8a6";
-      case "materialui":
-      case "mui":
-        return "#14b8a6 ";
       default:
         return "#14b8a6 ";
     }
