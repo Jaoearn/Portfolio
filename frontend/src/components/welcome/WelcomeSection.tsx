@@ -112,6 +112,21 @@ const WelcomeSection = ({ welcomeData }: Props) => {
       ref={containerRef}
       className="relative min-h-[90vh] flex flex-col items-center justify-center py-12 lg:py-24 overflow-hidden"
     >
+      {/* ⭐ STARS LAYER */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.8), transparent),
+            radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,.6), transparent),
+            radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,.7), transparent),
+            radial-gradient(2px 2px at 90% 20%, rgba(255,255,255,.9), transparent)
+          `,
+          backgroundRepeat: "repeat",
+          backgroundSize: "200px 200px",
+        }}
+      />
+
       {/* Background glow */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-teal-600/10 blur-[120px] rounded-full animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-900/10 blur-[150px] rounded-full animate-pulse delay-700" />

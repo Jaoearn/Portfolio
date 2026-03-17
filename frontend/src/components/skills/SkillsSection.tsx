@@ -13,7 +13,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
   return (
     <div className="mx-4 my-4 group">
       <div className="relative px-8 py-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:border-teal-500/30 hover:bg-white/[0.05] flex items-center gap-4 shadow-xl">
-
+        
         <div
           className="text-3xl transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_var(--icon-color)]"
           style={{ "--icon-color": color } as React.CSSProperties}
@@ -52,15 +52,30 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skillsData }) => {
   return (
     <div id="skills" className="relative z-50 py-24 lg:py-48 overflow-hidden">
 
-      {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-teal-600/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-950/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* ⭐ STARS LAYER */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.8), transparent),
+            radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,.6), transparent),
+            radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,.7), transparent),
+            radial-gradient(2px 2px at 90% 20%, rgba(255,255,255,.9), transparent)
+          `,
+          backgroundRepeat: "repeat",
+          backgroundSize: "200px 200px",
+        }}
+      />
 
-      <div className="container mx-auto px-4 lg:px-8 relative">
+      {/* 🌌 Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-teal-600/10 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-950/10 blur-[120px] rounded-full pointer-events-none z-0" />
+
+      {/* ✅ CONTENT */}
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
 
         {/* Header */}
         <div className="flex flex-col items-center mb-16 lg:mb-24">
-
           <SectionReveal direction="down">
             <div className="flex flex-col items-center gap-4">
 
@@ -81,12 +96,10 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skillsData }) => {
 
             </div>
           </SectionReveal>
-
         </div>
 
         {/* Marquee */}
         <div className="flex flex-col gap-6 lg:gap-8 relative">
-
           <SectionReveal direction="right" delay={0.2}>
             <Marquee speed={40} gradient={false} pauseOnHover>
               {firstHalf.map((skill, index) => (
@@ -107,7 +120,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skillsData }) => {
               ))}
             </Marquee>
           </SectionReveal>
-
         </div>
 
       </div>

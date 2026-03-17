@@ -16,6 +16,7 @@ export const skillsData = [
     "GitHub",
     "Postman",
     "Visual",
+    "Cursor",
     "Figma",
     "V0"
 ];
