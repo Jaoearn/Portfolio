@@ -1,4 +1,4 @@
-export const welcomeData = {
+export const heroData = {
     name: "Sutheera Preenan",
     designation: "Fullstack Developer",
     designationAlternateWords: [

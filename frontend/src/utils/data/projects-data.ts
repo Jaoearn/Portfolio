@@ -26,7 +26,7 @@ export const projectsData: Project[] = [
     name: "E-Commerce Platform",
     description: "Shopping platform with payment integration",
     images: ["/projects/ecommerce.jpg"],
-    tools: ["React", "tealux", "Stripe", "Node.js"],
+    tools: ["React", "orangeux", "Stripe", "Node.js"],
     demo: "https://shop-demo.com",
     code: "https://github.com/your-repo",
     date: "2025-11-20"

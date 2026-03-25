@@ -76,8 +76,8 @@ const Page = () => {
     <section className="bg-black min-h-screen text-white relative">
       {/* background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-40 left-20 w-96 h-96 bg-teal-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-40 right-20 w-96 h-96 bg-teal-600/10 blur-[120px] rounded-full" />
+        <div className="absolute top-40 left-20 w-96 h-96 bg-orange-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-orange-600/10 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 py-12 px-4 lg:px-8">
@@ -86,7 +86,7 @@ const Page = () => {
           {/* Back Button */}
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-white hover:text-teal-500 transition-colors mb-8 group font-medium"
+            className="inline-flex items-center gap-2 text-white hover:text-orange-500 transition-colors mb-8 group font-medium"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to Projects</span>
@@ -114,16 +114,16 @@ const Page = () => {
 
               <div className="w-full lg:w-1/2 flex flex-col gap-6">
                 <div className="flex flex-wrap gap-3">
-                  <span className="bg-teal-500/10 text-teal-500 border border-teal-500/20 px-3 py-1 text-xs font-bold rounded">
+                  <span className="bg-orange-500/10 text-orange-500 border border-orange-500/20 px-3 py-1 text-xs font-bold rounded">
                     {project.date}
                   </span>
 
-                  <span className="bg-teal-950/20 text-teal-400 border border-teal-900/30 px-3 py-1 text-xs font-bold rounded">
+                  <span className="bg-orange-950/20 text-orange-400 border border-orange-900/30 px-3 py-1 text-xs font-bold rounded">
                     {project.role}
                   </span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-teal-100 to-slate-400">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-100 to-slate-400">
                   {project.name}
                 </h1>
 
@@ -136,7 +136,7 @@ const Page = () => {
                     <a
                       href={project.demo}
                       target="_blank"
-                      className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl flex gap-2 font-bold uppercase"
+                      className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl flex gap-2 font-bold uppercase"
                     >
                       <Globe className="w-5 h-5" />
                       Live Preview
@@ -147,7 +147,7 @@ const Page = () => {
                     <a
                       href={project.code}
                       target="_blank"
-                      className="border border-white/10 bg-white/5 hover:bg-teal-950/20 hover:text-teal-500 px-8 py-4 rounded-xl flex gap-2 font-bold uppercase"
+                      className="border border-white/10 bg-white/5 hover:bg-orange-950/20 hover:text-orange-500 px-8 py-4 rounded-xl flex gap-2 font-bold uppercase"
                     >
                       <Code className="w-5 h-5" />
                       View Source
@@ -166,8 +166,8 @@ const Page = () => {
             <div className="lg:col-span-2 flex flex-col gap-16">
               <section className="flex flex-col gap-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center border border-teal-500/20">
-                    <ShieldCheck className="w-6 h-6 text-teal-500" />
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
+                    <ShieldCheck className="w-6 h-6 text-orange-500" />
                   </div>
 
                   <h2 className="text-3xl font-black">Project Highlights</h2>
@@ -188,8 +188,8 @@ const Page = () => {
               {images.length > 0 && (
                 <section className="flex flex-col gap-8">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-teal-900/10 flex items-center justify-center border border-teal-900/20">
-                      <Calendar className="w-6 h-6 text-teal-600" />
+                    <div className="w-10 h-10 rounded-xl bg-orange-900/10 flex items-center justify-center border border-orange-900/20">
+                      <Calendar className="w-6 h-6 text-orange-600" />
                     </div>
 
                     <h2 className="text-3xl font-black">Visual Showcase</h2>
@@ -205,14 +205,14 @@ const Page = () => {
 
                     <button
                       onClick={prev}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-teal-600/20 hover:bg-teal-600 text-white p-2 rounded-full"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-orange-600/20 hover:bg-orange-600 text-white p-2 rounded-full"
                     >
                       <ArrowLeft />
                     </button>
 
                     <button
                       onClick={next}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-teal-600/20 hover:bg-teal-600 text-white p-2 rounded-full"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-orange-600/20 hover:bg-orange-600 text-white p-2 rounded-full"
                     >
                       <ArrowRight />
                     </button>
@@ -227,7 +227,7 @@ const Page = () => {
                 <div className="flex flex-col gap-8">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <Cpu className="w-4 h-4 text-teal-500" />
+                      <Cpu className="w-4 h-4 text-orange-500" />
                       <h3 className="text-xl font-bold">Technologies</h3>
                     </div>
 

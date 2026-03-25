@@ -36,14 +36,14 @@ const Navbar = () => {
         smooth
         offset={-80}
         duration={500}
-        activeClass="text-teal-400"
+        activeClass="text-orange-400"
         className={`${baseClasses} text-slate-300 hover:text-white`}
         onClick={isMobile ? () => setIsMenuOpen(false) : undefined}
       >
         {item.label}
 
         {!isMobile && (
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-teal-400 to-cyan-400 transition-all duration-300 group-hover:w-full [.text-teal-400_&]:w-full" />
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-red-600 to-orange-500 transition-all duration-300 group-hover:w-full [.text-orange-400_&]:w-full" />
         )}
       </ScrollLink>
     );
@@ -64,7 +64,7 @@ const Navbar = () => {
           href="#home"
           className="text-lg md:text-xl font-black tracking-tight text-white hover:scale-105 transition-transform"
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">
             Sutheera
           </span>
           <span className="ml-1">Preenan</span>

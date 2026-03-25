@@ -5,8 +5,8 @@ import AboutSection from "../../components/about/AboutSection";
 import ExperienceSection from "../../components/experience/ExperienceSection";
 import ProjectsSection from "../../components/projects/ProjectsSection";
 import SkillsSection from "../../components/skills/SkillsSection";
-import WelcomeSection from "../../components/welcome/WelcomeSection";
-import { welcomeData } from "../../utils/data/welcome-data";
+import HeroSection from "../../components/hero/HeroSection";
+import { heroData } from "../../utils/data/hero-data";
 import { aboutData } from "../../utils/data/about-data";
 import { experienceData } from "../../utils/data/experience-data";
 import { projectsData } from "../../utils/data/projects-data";
@@ -22,7 +22,7 @@ export default function DashboardPage() {
         <Navbar />
 
         <SectionReveal>
-          <WelcomeSection welcomeData={welcomeData} />
+          <HeroSection heroData={heroData} />
         </SectionReveal>
 
         <SectionReveal>

@@ -15,8 +15,6 @@ import {
       linkedIn: string;
     };
   };
-
-  import logoImg from "../../public/img/logo.png"
   
   const Footer = ({ footerData }: FooterProps) => {
     return (
@@ -29,34 +27,27 @@ import {
   
             {/* Logo + name */}
             <div className="flex items-center gap-3">
-              {/* <img
-                 src={logoImg}
-                alt="logo"
-                className="w-12 h-12 object-contain"
-              /> */}
             </div>
   
             {/* Contact */}
             <div className="flex flex-wrap items-center gap-6 text-sm">
   
               <a
-                href={`mailto:${footerData.email}`}
-                className="flex items-center gap-2 hover:text-teal-500 transition"
+                className="flex items-center gap-2 hover:text-orange-500 transition"
               >
-                <FaEnvelope className="text-teal-500" />
+                <FaEnvelope className="text-orange-500" />
                 {footerData.email}
               </a>
   
               <a
-                href={`tel:${footerData.phone}`}
-                className="flex items-center gap-2 hover:text-teal-500 transition"
+                className="flex items-center gap-2 hover:text-orange-500 transition"
               >
-                <FaPhone className="text-teal-500" />
+                <FaPhone className="text-orange-500" />
                 {footerData.phone}
               </a>
   
-              <div className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-teal-500" />
+              <div className="flex items-center gap-2 hover:text-orange-500 transition">
+                <FaMapMarkerAlt className="text-orange-500" />
                 {footerData.location}
               </div>
   
@@ -69,7 +60,7 @@ import {
                 href={footerData.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500 hover:text-teal-500 transition"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-orange-500 hover:text-orange-500 transition"
               >
                 <FaGithub size={16} />
               </a>
@@ -78,7 +69,7 @@ import {
                 href={footerData.linkedIn}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-teal-500 hover:text-teal-500 transition"
+                className="p-2 rounded-lg bg-white/5 border border-white/10 hover:border-orange-500 hover:text-orange-500 transition"
               >
                 <FaLinkedin size={16} />
               </a>
@@ -96,7 +87,7 @@ import {
   
             <p className="flex items-center gap-1">
               Built with React + Tailwind 
-              <span className="text-teal-500 animate-pulse">❤</span>
+              <span className="text-orange-500 animate-pulse">❤</span>
             </p>
   
           </div>

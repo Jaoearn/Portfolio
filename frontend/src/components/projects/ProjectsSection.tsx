@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MoveDown, MoveUp } from "lucide-react";
+import { ChevronsDown, ChevronsUp } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 
 export type Project = {
@@ -45,19 +45,19 @@ const ProjectsSection = ({ projectsData }: Props) => {
         }}
       />
       {/* background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-teal-600/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-orange-600/5 blur-[150px] rounded-full pointer-events-none" />
 
       {/* section title */}
       <div className="flex justify-center mb-20 lg:mb-32">
         <div className="flex items-center">
 
-          <span className="w-24 h-[2px] bg-gradient-to-r from-transparent to-teal-600"></span>
+          <span className="w-24 h-[2px] bg-gradient-to-r from-transparent to-orange-600"></span>
 
-          <span className="bg-[#050505] border border-teal-600/30 w-fit text-white p-3 px-8 text-2xl font-bold rounded-full shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+          <span className="bg-[#050505] border border-orange-600/30 w-fit text-white p-3 px-8 text-2xl font-bold rounded-full shadow-[0_0_20px_rgba(220,38,38,0.2)]">
             Projects Showcase
           </span>
 
-          <span className="w-24 h-[2px] bg-gradient-to-l from-transparent to-teal-600"></span>
+          <span className="w-24 h-[2px] bg-gradient-to-l from-transparent to-orange-600"></span>
 
         </div>
       </div>
@@ -85,17 +85,26 @@ const ProjectsSection = ({ projectsData }: Props) => {
           {restProjects.length > 0 && (
             <button
               onClick={() => setShowAll(!showAll)}
-              className="group mt-8 relative px-10 py-4 rounded-2xl bg-gradient-to-r from-teal-600 to-teal-900 text-white font-bold uppercase tracking-widest text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(220,38,38,0.3)] flex items-center gap-2 overflow-hidden"
+              className="group mt-8 relative px-10 py-4 rounded-2xl 
+              bg-gradient-to-r from-black via-red-800 via-orange-700 to-black
+              text-white font-bold uppercase tracking-widest text-sm 
+              transition-all duration-300 hover:scale-105 active:scale-95 
+              shadow-[0_0_15px_rgba(255,115,0,0.12)]
+              flex items-center gap-2 overflow-hidden border border-white/10"
             >
 
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              {/* 🔥 glow overlay */}
+              <div className="absolute inset-0 bg-[#050505] border border-orange-600/30 text-white p-3 px-8 text-2xl font-bold" />
+
+              {/* ✨ shine effect */}
+              <div className="absolute -left-1/2 top-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shine_1.5s_linear]"></div>
 
               <span className="relative flex items-center gap-2">
                 {showAll ? "View Less" : "View All"}
                 {showAll ? (
-                  <MoveUp className="w-4 h-4" />
+                  <ChevronsUp className="w-4 h-4" />
                 ) : (
-                  <MoveDown className="w-4 h-4" />
+                  <ChevronsDown className="w-4 h-4" />
                 )}
               </span>
 

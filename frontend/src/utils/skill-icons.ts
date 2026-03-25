@@ -71,9 +71,9 @@ import {
     const skillLower = skill.toLowerCase();
     switch (skillLower) {
       case "":
-        return "#14b8a6 ";  // teal-500
+        return "#ea580c";  // orange-500
       default:
-        return "#14b8a6 ";
+        return "#ea580c";
     }
   };
   

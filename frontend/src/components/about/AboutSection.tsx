@@ -14,57 +14,55 @@ function AboutSection({ aboutData }: AboutProps) {
   return (
     <section
       id="about"
-      className="relative py-24 lg:py-40 overflow-hidden bg-[#050505]"
+      className="relative py-28 lg:py-44 overflow-hidden bg-[#030303]"
     >
-      {/* STARS LAYER */}
+      {/* STAR BG (animated feel) */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="absolute inset-0 opacity-60"
         style={{
           backgroundImage: `
-            radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.8), transparent),
+            radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.7), transparent),
             radial-gradient(1.5px 1.5px at 70% 60%, rgba(255,255,255,.6), transparent),
-            radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,.7), transparent),
-            radial-gradient(2px 2px at 90% 20%, rgba(255,255,255,.9), transparent)
+            radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,.6), transparent),
+            radial-gradient(2px 2px at 90% 20%, rgba(255,255,255,.8), transparent)
           `,
-          backgroundRepeat: "repeat",
-          backgroundSize: "200px 200px",
+          backgroundSize: "180px 180px",
         }}
       />
 
-      {/* glow */}
-      <div className="absolute top-1/2 left-1/2 w-[700px] h-[400px] -translate-x-1/2 -translate-y-1/2 bg-teal-600/10 blur-[140px] rounded-full pointer-events-none z-0" />
+      {/* GRADIENT GLOW */}
+      <div className="absolute top-1/2 left-1/2 w-[900px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-orange-500/20 via-red-500/10 to-transparent blur-[160px] rounded-full" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center gap-12">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col items-center text-center gap-16">
 
           {/* HEADER */}
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-3 text-teal-500">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center border border-teal-500/20">
+          <div className="flex flex-col items-center gap-5">
+            <div className="flex items-center gap-3 text-orange-500">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/20 to-transparent border border-orange-400/20 flex items-center justify-center backdrop-blur-md shadow-lg">
                 <User className="w-6 h-6" />
               </div>
 
-              <span className="text-sm font-bold uppercase tracking-[0.35em]">
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-orange-400">
                 About Me
               </span>
             </div>
 
-            <h2 className="text-3xl lg:text-4xl font-black text-white">
+            <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight">
               {aboutData.name}
             </h2>
-
-            <p className="text-teal-400 font-semibold">
-              {aboutData.profile}
-            </p>
           </div>
 
-          {/* DESCRIPTION */}
+          {/* DESCRIPTION CARD */}
           <div className="relative max-w-4xl w-full group">
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
 
-            <div className="relative p-10 rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-2xl text-slate-300 text-lg leading-relaxed italic shadow-lg transition-all duration-300 hover:border-teal-500/30">
+            {/* glow border */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-orange-500/20 via-transparent to-orange-500/20 opacity-0 group-hover:opacity-100 blur-xl transition duration-500" />
 
-              <span className="text-5xl text-teal-500 opacity-40 absolute left-6 top-2">
+            <div className="relative p-12 rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-2xl text-slate-300 text-lg leading-relaxed shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-orange-400/40">
+
+              {/* quote icon */}
+              <span className="text-6xl text-orange-500/30 absolute left-6 top-4">
                 "
               </span>
 
@@ -72,47 +70,41 @@ function AboutSection({ aboutData }: AboutProps) {
                 {aboutData.description}
               </p>
 
-              <span className="text-5xl text-teal-500 opacity-40 absolute right-6 bottom-2">
+              <span className="text-6xl text-orange-500/30 absolute right-6 bottom-4">
                 "
               </span>
 
-              <div className="absolute w-1 h-20 bg-gradient-to-b from-teal-500 to-transparent left-0 top-12 rounded-full" />
+              {/* accent line */}
+              <div className="absolute left-0 top-10 h-24 w-[3px] bg-gradient-to-b from-orange-500 to-transparent rounded-full" />
 
             </div>
           </div>
 
           {/* STATS */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-3xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 w-full max-w-4xl">
 
-            <div className="group relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-teal-500/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-teal-500/10 blur-xl opacity-0 group-hover:opacity-100 transition" />
-              <div className="relative flex flex-col items-center gap-2">
-                <span className="text-4xl font-black text-white">4+</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest font-bold">
-                  Years Experience
-                </span>
-              </div>
-            </div>
+            {[
+              { label: "Years Experience", value: "4+" },
+              { label: "Projects", value: "10+" },
+              { label: "Tech Stack", value: "10+" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-orange-400/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(255,115,0,0.2)]"
+              >
+                <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 blur-xl transition" />
 
-            <div className="group relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-teal-500/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-teal-500/10 blur-xl opacity-0 group-hover:opacity-100 transition" />
-              <div className="relative flex flex-col items-center gap-2">
-                <span className="text-4xl font-black text-white">10+</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest font-bold">
-                  Projects
-                </span>
-              </div>
-            </div>
+                <div className="relative flex flex-col items-center gap-3">
+                  <span className="text-5xl font-black bg-gradient-to-r from-orange-400 to-orange-200 bg-clip-text text-transparent">
+                    {item.value}
+                  </span>
 
-            <div className="group relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-teal-500/30 transition-all duration-300">
-              <div className="absolute inset-0 bg-teal-500/10 blur-xl opacity-0 group-hover:opacity-100 transition" />
-              <div className="relative flex flex-col items-center gap-2">
-                <span className="text-4xl font-black text-white">10+</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest font-bold">
-                  Tech Mastered
-                </span>
+                  <span className="text-xs text-slate-400 uppercase tracking-widest font-bold">
+                    {item.label}
+                  </span>
+                </div>
               </div>
-            </div>
+            ))}
 
           </div>
 

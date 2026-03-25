@@ -76,7 +76,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         }}
       />
 
-      <div className="relative flex flex-col h-full justify-between border border-white/10 bg-gradient-to-br from-black via-teal-950/60 to-black backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-teal-600/50 hover:shadow-teal-600/10">
+      <div className="relative flex flex-col h-full justify-between border border-white/10 bg-gradient-to-br from-black via-orange-950/60 to-black backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-orange-600/50 hover:shadow-orange-600/10">
 
         {/* media */}
         <div className="flex-1">
@@ -102,16 +102,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-slate-950 via-teal-950/70 to-black flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-slate-950 via-orange-950/70 to-black flex items-center justify-center">
                 <span className="text-slate-600">{project.name}</span>
               </div>
             )}
 
             {/* overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-teal-900/70 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-orange-900/70 to-transparent opacity-80" />
 
             {isNewProject(project.date) && (
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-teal-600 to-teal-900 text-white px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg animate-pulse z-10 border border-white/10">
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-600 to-orange-900 text-white px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg animate-pulse z-10 border border-white/10">
                 <Sparkles className="w-3 h-3 text-white" />
                 <span className="text-[10px] font-bold tracking-wider">
                   NEW
@@ -128,10 +128,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               to={`/projects/${project.id}`}
               className="group/title inline-block"
             >
-              <h3 className="text-2xl font-bold text-white group-hover/title:text-teal-500 transition-colors flex items-center gap-2 tracking-tight">
+              <h3 className="text-2xl font-bold text-white group-hover/title:text-orange-500 transition-colors flex items-center gap-2 tracking-tight">
                 {project.name}
 
-                <ExternalLink className="w-4 h-4 opacity-0 -translate-y-1 translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-y-0 group-hover/title:translate-x-0 transition-all text-teal-500" />
+                <ExternalLink className="w-4 h-4 opacity-0 -translate-y-1 translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-y-0 group-hover/title:translate-x-0 transition-all text-orange-500" />
               </h3>
             </Link>
 
@@ -149,7 +149,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               {visibleTools.map((tool, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-[11px] font-bold bg-white/5 border border-white/10 text-slate-400 rounded-lg hover:bg-teal-500/10 hover:border-teal-500/30 hover:text-teal-500 transition-all duration-300"
+                  className="px-3 py-1 text-[11px] font-bold bg-white/5 border border-white/10 text-slate-400 rounded-lg hover:bg-orange-500/10 hover:border-orange-500/30 hover:text-orange-500 transition-all duration-300"
                 >
                   {tool}
                 </span>
@@ -161,7 +161,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     e.preventDefault();
                     setShowAllTags(!showAllTags);
                   }}
-                  className="flex items-center gap-1 text-teal-500 hover:text-teal-400 text-[11px] font-black transition-colors pl-1 uppercase tracking-widest"
+                  className="flex items-center gap-1 text-orange-500 hover:text-orange-400 text-[11px] font-black transition-colors pl-1 uppercase tracking-widest"
                 >
                   {showAllTags ? (
                     <ChevronUp className="w-3 h-3" />
@@ -188,7 +188,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               disabled={!project.demo}
               className={`w-full h-11 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 ${
                 project.demo
-                  ? "bg-white/5 hover:bg-teal-600 text-white hover:border-teal-500 shadow-xl hover:shadow-teal-600/20"
+                  ? "bg-white/5 hover:bg-orange-600 text-white hover:border-orange-500 shadow-xl hover:shadow-orange-600/20"
                   : "bg-white/2 text-slate-800 cursor-not-allowed border-none"
               }`}
             >
@@ -206,7 +206,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               disabled={!project.code}
               className={`w-full h-11 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 ${
                 project.code
-                  ? "bg-white/5 hover:bg-teal-950 text-white hover:border-teal-800 shadow-xl hover:shadow-teal-950/20"
+                  ? "bg-white/5 hover:bg-orange-950 text-white hover:border-orange-800 shadow-xl hover:shadow-orange-950/20"
                   : "bg-white/2 text-slate-800 cursor-not-allowed border-none"
               }`}
             >

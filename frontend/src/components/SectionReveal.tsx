@@ -94,7 +94,7 @@ export default function SectionReveal({
       <div
         ref={bgRef}
         className="pointer-events-none absolute inset-0 -z-10 
-        bg-[radial-gradient(circle_at_center,rgba(45,212,191,0.4),transparent_70%)]"
+        bg-[radial-gradient(circle_at_center,rgba(255,80,80,0.25),rgba(255,140,0,0.2)_60%,transparent_85%)]"
       />
 
       {children}

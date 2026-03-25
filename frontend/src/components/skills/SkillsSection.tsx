@@ -12,7 +12,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
 
   return (
     <div className="mx-4 my-4 group">
-      <div className="relative px-8 py-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:border-teal-500/30 hover:bg-white/[0.05] flex items-center gap-4 shadow-xl">
+      <div className="relative px-8 py-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-3xl transition-all duration-500 hover:border-orange-500/30 hover:bg-white/[0.05] flex items-center gap-4 shadow-xl">
         
         <div
           className="text-3xl transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_var(--icon-color)]"
@@ -22,7 +22,7 @@ const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
         </div>
 
         <div className="flex flex-col">
-          <span className="text-sm font-bold text-white tracking-wide uppercase group-hover:text-teal-500 transition-colors">
+          <span className="text-sm font-bold text-white tracking-wide uppercase group-hover:text-orange-500 transition-colors">
             {skill}
           </span>
 
@@ -68,34 +68,23 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skillsData }) => {
       />
 
       {/* 🌌 Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-teal-600/10 blur-[150px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-950/10 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-orange-600/10 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-950/10 blur-[120px] rounded-full pointer-events-none z-0" />
 
       {/* ✅ CONTENT */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="flex flex-col items-center mb-16 lg:mb-24">
-          <SectionReveal direction="down">
-            <div className="flex flex-col items-center gap-4">
+        <div className="flex justify-center mb-10 lg:mb-20">
+          <div className="flex items-center">
+            <span className="w-24 h-[2px] bg-gradient-to-r from-transparent to-orange-600"></span>
 
-              <div className="flex items-center gap-3 text-teal-500">
-                <span className="w-8 h-[1px] bg-teal-500/50"></span>
-                <span className="text-xs font-bold uppercase tracking-[0.5em]">
-                  Inventory
-                </span>
-                <span className="w-8 h-[1px] bg-teal-500/50"></span>
-              </div>
+            <span className="bg-[#050505] border border-orange-600/30 text-white p-3 px-8 text-2xl font-bold rounded-full">
+              Tech Stack
+            </span>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter text-center">
-                The{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-800">
-                  Tech Stack
-                </span>
-              </h2>
-
-            </div>
-          </SectionReveal>
+            <span className="w-24 h-[2px] bg-gradient-to-l from-transparent to-orange-600"></span>
+          </div>
         </div>
 
         {/* Marquee */}

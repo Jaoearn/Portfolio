@@ -45,24 +45,24 @@ function ExperienceSection({ experiencesData }: Props) {
       />
 
       {/* 🌌 Glow background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-600/10 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/10 blur-[120px] rounded-full pointer-events-none z-0" />
 
       {/* ✅ CONTENT */}
       <div className="relative z-10">
         <div className="flex justify-center mb-10 lg:mb-20">
           <div className="flex items-center">
-            <span className="w-24 h-[2px] bg-gradient-to-r from-transparent to-teal-600"></span>
+            <span className="w-24 h-[2px] bg-gradient-to-r from-transparent to-orange-600"></span>
 
-            <span className="bg-[#050505] border border-teal-600/30 text-white p-3 px-8 text-2xl font-bold rounded-full">
+            <span className="bg-[#050505] border border-orange-600/30 text-white p-3 px-8 text-2xl font-bold rounded-full">
               Professional Journey
             </span>
 
-            <span className="w-24 h-[2px] bg-gradient-to-l from-transparent to-teal-600"></span>
+            <span className="w-24 h-[2px] bg-gradient-to-l from-transparent to-orange-600"></span>
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-teal-600 via-teal-950 to-transparent opacity-30" />
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-600 via-orange-950 to-transparent opacity-30" />
 
           <div className="flex flex-col gap-16 lg:gap-24">
             {experiencesData.map((exp, index) => (
@@ -76,8 +76,8 @@ function ExperienceSection({ experiencesData }: Props) {
                     }`}
                   >
                     {/* ICON */}
-                    <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-xl bg-[#050505] border-2 border-teal-600 flex items-center justify-center z-10">
-                      <SquareUserRound className="text-teal-600 w-5 h-5" />
+                    <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 w-10 h-10 rounded-xl bg-[#050505] border-2 border-orange-600 flex items-center justify-center z-10">
+                      <SquareUserRound className="text-orange-600 w-5 h-5" />
                     </div>
 
                     {/* DATE */}
@@ -89,7 +89,7 @@ function ExperienceSection({ experiencesData }: Props) {
                       }`}
                     >
                       <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-full flex items-center gap-2 text-slate-400 text-sm">
-                        <Calendar className="w-4 h-4 text-teal-600" />
+                        <Calendar className="w-4 h-4 text-orange-600" />
                         {exp.duration}
                       </div>
                     </div>
@@ -103,7 +103,7 @@ function ExperienceSection({ experiencesData }: Props) {
                               {exp.title}
                             </h3>
 
-                            <div className="flex items-center gap-2 text-teal-500">
+                            <div className="flex items-center gap-2 text-orange-500">
                               <Building2 className="w-4 h-4" />
                               {exp.company}
                             </div>
@@ -113,8 +113,8 @@ function ExperienceSection({ experiencesData }: Props) {
                             {exp.detail?.map((detail, idx) => (
                               <div key={idx} className="space-y-2">
                                 <div className="flex gap-3 items-start">
-                                  <ChevronRight className="w-4 h-4 text-teal-600 mt-1 shrink-0" />
-                                  <p className="text-slate-400 text-sm lg:text-base">
+                                  <ChevronRight className="w-4 h-4 text-orange-600 mt-1 shrink-0" />
+                                  <p className="text-slate-300 text-sm lg:text-base">
                                     {detail.details}
                                   </p>
                                 </div>
@@ -126,8 +126,8 @@ function ExperienceSection({ experiencesData }: Props) {
                                         key={i}
                                         className="flex gap-2 items-start"
                                       >
-                                        <ChevronRight className="w-3 h-3 text-teal-500 mt-1 shrink-0" />
-                                        <p className="text-slate-500 text-sm">
+                                        <ChevronRight className="w-3 h-3 text-orange-500 mt-1 shrink-0" />
+                                        <p className="text-slate-400 text-sm">
                                           {sub}
                                         </p>
                                       </div>
