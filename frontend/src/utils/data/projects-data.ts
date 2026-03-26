@@ -2,6 +2,27 @@ import type { Project } from "../../components/projects/ProjectsSection";
 
 export const projectsData: Project[] = [
   {
+    id: "project-001",
+    name: "Portfolio Website",
+    description: "A personal portfolio website to showcase projects and skills.",
+    images: [
+      "https://example.com/image1.png",
+      "https://example.com/image2.png"
+    ],
+    tools: ["React", "TypeScript", "Tailwind CSS", "MongoDB", "Express"],
+    demo: "https://example.com",
+    code: "https://github.com/username/portfolio",
+    date: "2026-03-01",
+    highlights: [
+      "Responsive design",
+      "Dark mode support",
+      "Optimized performance",
+      "Responsive design",
+      "Dark mode support",
+      "Optimized performance"
+    ]
+  },
+  {
     id: "portfolio",
     name: "Developer Portfolio",
     description: "Modern portfolio built with React, TypeScript and Tailwind",

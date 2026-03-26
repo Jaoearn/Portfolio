@@ -12,6 +12,7 @@ export type Project = {
   demo?: string;
   code?: string;
   date?: string;
+  highlights?: string[];
 };
 
 type Props = {
@@ -69,12 +70,10 @@ const ProjectsSection = ({ projectsData }: Props) => {
           {/* projects grid */}
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
 
-            {/* 3 project แรก */}
             {firstProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
 
-            {/* project ที่เหลือ */}
             {showAll &&
               restProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
@@ -86,18 +85,15 @@ const ProjectsSection = ({ projectsData }: Props) => {
             <button
               onClick={() => setShowAll(!showAll)}
               className="group mt-8 relative px-10 py-4 rounded-2xl 
-              bg-gradient-to-r from-black via-red-800 via-orange-700 to-black
-              text-white font-bold uppercase tracking-widest text-sm 
-              transition-all duration-300 hover:scale-105 active:scale-95 
-              shadow-[0_0_15px_rgba(255,115,0,0.12)]
-              flex items-center gap-2 overflow-hidden border border-white/10"
+             border border-white/5 bg-orange-600/10 backdrop-blur-3xl transition-all 
+             duration-500 hover:border-orange-500/30 hover:bg-white/[0.03] shadow-xl 
+             flex items-center gap-2 overflow-hidden"
             >
 
-              {/* 🔥 glow overlay */}
-              <div className="absolute inset-0 bg-[#050505] border border-orange-600/30 text-white p-3 px-8 text-2xl font-bold" />
-
-              {/* ✨ shine effect */}
-              <div className="absolute -left-1/2 top-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shine_1.5s_linear]"></div>
+              {/* ✨ subtle glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+                bg-orange-500/5 blur-xl"
+              />
 
               <span className="relative flex items-center gap-2">
                 {showAll ? "View Less" : "View All"}

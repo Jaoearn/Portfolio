@@ -1,25 +1,16 @@
 import { useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { ChevronUp, Code, ExternalLink, Globe, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
-
-type Project = {
-  id: string;
-  name: string;
-  description: string;
-  images?: string[];
-  videos?: string[];
-  tools: string[];
-  demo?: string;
-  code?: string;
-  date?: string;
-};
+import ProjectDetailModal from "./ProjectDetailModal";
+import type { Project } from "./ProjectsSection";
 
 type ProjectCardProps = {
   project: Project;
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [IsOpen, setIsOpen] = useState(false);
   const firstImage = project.images?.[0];
 
   const [showAllTags, setShowAllTags] = useState(false);
@@ -28,7 +19,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const maxVisibleTags = 5;
-
   const hasMoreTags = project.tools.length > maxVisibleTags;
 
   const visibleTools = showAllTags
@@ -46,22 +36,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     });
   };
 
-  const isNewProject = (dateString?: string) => {
-    if (!dateString) return false;
-
-    try {
-      const projectDate = new Date(dateString);
-      const currentDate = new Date();
-
-      const oneMonthAgo = new Date();
-      oneMonthAgo.setMonth(currentDate.getMonth() - 1);
-
-      return projectDate >= oneMonthAgo && projectDate <= currentDate;
-    } catch {
-      return false;
-    }
-  };
-
   return (
     <div
       ref={cardRef}
@@ -70,13 +44,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     >
       {/* spotlight */}
       <div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 z-0"
         style={{
           background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(239,68,68,0.1), transparent 40%)`
         }}
       />
 
-      <div className="relative flex flex-col h-full justify-between border border-white/10 bg-gradient-to-br from-black via-orange-950/60 to-black backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-orange-600/50 hover:shadow-orange-600/10">
+      <div className="relative z-10 flex flex-col h-full justify-between border border-white/10 bg-gradient-to-br from-black via-orange-950/60 to-black backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-orange-600/50 hover:shadow-orange-600/10">
 
         {/* media */}
         <div className="flex-1">
@@ -107,33 +81,27 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               </div>
             )}
 
-            {/* overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-orange-900/70 to-transparent opacity-80" />
-
-            {isNewProject(project.date) && (
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-600 to-orange-900 text-white px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg animate-pulse z-10 border border-white/10">
-                <Sparkles className="w-3 h-3 text-white" />
-                <span className="text-[10px] font-bold tracking-wider">
-                  NEW
-                </span>
-              </div>
-            )}
-
           </div>
 
           {/* header */}
           <div className="p-6 pb-2">
 
-            <Link
-              to={`/projects/${project.id}`}
-              className="group/title inline-block"
+            <h3 
+              onClick={() => {
+                setSelectedProject(project);
+                setIsOpen(true);
+              }}
+              className="group/title relative z-20 cursor-pointer text-2xl font-bold text-white flex items-center gap-2 tracking-tight"
             >
-              <h3 className="text-2xl font-bold text-white group-hover/title:text-orange-500 transition-colors flex items-center gap-2 tracking-tight">
+              <span className="group-hover/title:text-orange-500 transition-colors">
                 {project.name}
+              </span>
 
-                <ExternalLink className="w-4 h-4 opacity-0 -translate-y-1 translate-x-1 group-hover/title:opacity-100 group-hover/title:translate-y-0 group-hover/title:translate-x-0 transition-all text-orange-500" />
-              </h3>
-            </Link>
+              <span className="inline-flex items-center overflow-hidden">
+                <ExternalLink className="w-4 h-4 text-orange-500 opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300" />
+              </span>
+            </h3>
 
           </div>
 
@@ -172,52 +140,39 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               )}
 
             </div>
-
           </div>
         </div>
 
         {/* footer */}
         <div className="p-6 pt-2 flex gap-4">
 
-          <a
-            href={project.demo || "#"}
-            target="_blank"
-            className="flex-1"
-          >
-            <button
-              disabled={!project.demo}
-              className={`w-full h-11 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 ${
-                project.demo
-                  ? "bg-white/5 hover:bg-orange-600 text-white hover:border-orange-500 shadow-xl hover:shadow-orange-600/20"
-                  : "bg-white/2 text-slate-800 cursor-not-allowed border-none"
-              }`}
-            >
-              <Globe className="w-4 h-4" />
-              Live Demo
-            </button>
-          </a>
-
-          <a
-            href={project.code || "#"}
-            target="_blank"
-            className="flex-1"
-          >
-            <button
-              disabled={!project.code}
-              className={`w-full h-11 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 border border-white/10 ${
-                project.code
-                  ? "bg-white/5 hover:bg-orange-950 text-white hover:border-orange-800 shadow-xl hover:shadow-orange-950/20"
-                  : "bg-white/2 text-slate-800 cursor-not-allowed border-none"
-              }`}
-            >
-              <Code className="w-4 h-4" />
-              Source
-            </button>
-          </a>
+          {project.demo && (
+            <a href={project.demo} target="_blank" className="flex-1">
+              <button className="w-full h-11 rounded-xl text-xs font-bold bg-white/5 hover:bg-orange-600 text-white flex items-center justify-center gap-2">
+                <Globe className="w-4 h-4" />
+                Live Demo
+              </button>
+            </a>
+          )}
+          {project.code && (
+            <a href={project.code} target="_blank" className="flex-1">
+              <button className="w-full h-11 rounded-xl text-xs font-bold bg-white/5 hover:bg-orange-950 text-white flex items-center justify-center gap-2">
+                <Code className="w-4 h-4" />
+                Source
+              </button>
+            </a>
+          )}
 
         </div>
-
       </div>
+
+      {/* ✅ MODAL */}
+      <ProjectDetailModal
+        project={selectedProject}
+        isOpen={IsOpen}
+        onClose={() => setIsOpen(false)}
+      />
+
     </div>
   );
 };

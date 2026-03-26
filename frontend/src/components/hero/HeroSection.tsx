@@ -3,7 +3,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/dist/SplitText";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { RiContactsFill } from "react-icons/ri";
 import Tilt from "react-parallax-tilt";
 import { MdDownload } from "react-icons/md";
 
