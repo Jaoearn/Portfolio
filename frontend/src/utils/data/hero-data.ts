@@ -1,3 +1,5 @@
+import resumeFile from "../../../public/file/Sutheera Preenan Resume.pdf"
+
 export const heroData = {
     name: "Sutheera Preenan",
     designation: "Fullstack Developer",
@@ -9,5 +11,5 @@ export const heroData = {
     ],
     github: "https://github.com/Jaoearn",
     linkedIn: "https://linkedin.com/in/sutheera-preenan-06bb0126a",
-    resume: "/resume.pdf"
+    resume: resumeFile
 };
