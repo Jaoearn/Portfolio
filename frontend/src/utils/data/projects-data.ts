@@ -64,7 +64,7 @@ export const projectsData: Project[] = [
       portImg
     ],
     tools: ["React", "TypeScript", "Tailwind", "GSAP"],
-    demo: "",
+    demo: "https://sutheera-preenan-portfolio.vercel.app",
     code: "https://github.com/Jaoearn/Portfolio",
     date: "2026-03-05",
     highlights: [
