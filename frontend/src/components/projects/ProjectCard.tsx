@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import type { MouseEvent } from "react";
-import { ChevronUp, Code, ExternalLink, Globe, Sparkles } from "lucide-react";
+import { ChevronUp, Code, ExternalLink, Globe } from "lucide-react";
 import ProjectDetailModal from "./ProjectDetailModal";
 import type { Project } from "./ProjectsSection";
 
