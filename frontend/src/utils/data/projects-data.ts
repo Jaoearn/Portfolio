@@ -13,6 +13,7 @@ export const projectsData: Project[] = [
       jotBugImg
     ],
     tools: ["React", "TypeScript", "Tailwind"],
+    demo: "https://jot-bug.vercel.app",
     code: "https://github.com/Jaoearn/JotBug",
     date: "2026-03-05",
     highlights: [
